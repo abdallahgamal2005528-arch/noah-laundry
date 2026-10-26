@@ -18,14 +18,19 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
-        header { background: rgba(5, 11, 22, 0.95); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 5%; display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1); backdrop-filter: blur(10px); }
-        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex-direction: row-reverse; text-align: right; }
-        .logo-icon { font-size: 1.8rem; color: var(--accent-gold); }
-        .logo-text h2 { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.5px; color: var(--accent-gold); }
-        .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+        /* الشريط الذهبي العلوي */
+        .top-bar { background: linear-gradient(90deg, #aa8c2c 0%, #d4af37 50%, #aa8c2c 100%); color: #000; text-align: center; font-size: 0.8rem; font-weight: bold; padding: 5px 10px; z-index: 1001; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
 
-        /* واجهة الـ Hero مع محاكي الدراي كلين التفاعلي 3D */
-        .hero { padding: 140px 5% 80px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; background: radial-gradient(circle at 70% 30%, #0e2246 0%, var(--bg-dark) 70%); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        /* الهيدر الأنيق */
+        header { background: rgba(5, 11, 22, 0.95); position: fixed; top: 27px; width: 100%; z-index: 1000; padding: 12px 5%; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.2); backdrop-filter: blur(10px); }
+        
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; text-align: center; justify-content: center; }
+        .logo-icon { font-size: 1.8rem; color: var(--accent-gold); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); }
+        .logo-text h2 { font-size: 1.3rem; font-weight: 800; letter-spacing: 0.8px; color: var(--accent-gold); line-height: 1.1; }
+        .logo-text p { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; }
+
+        /* واجهة الـ Hero */
+        .hero { padding: 160px 5% 80px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; background: radial-gradient(circle at 70% 30%, #0e2246 0%, var(--bg-dark) 70%); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .hero-content h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
         .hero-content h1 span { color: var(--accent-gold); }
         .hero-content p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; max-width: 550px; }
@@ -74,7 +79,10 @@
         .modal-close { position: absolute; top: 15px; left: 20px; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; transition: 0.3s; }
         .modal-close:hover { color: #ff4d4d; }
 
-        .sub-header { color: var(--accent-gold); font-size: 1.15rem; margin: 20px 0 10px; text-align: right; border-right: 4px solid var(--accent-gold); padding-right: 12px; font-weight: 600; }
+        /* شريط البحث داخل النافذة المنبثقة */
+        .search-box { width: 100%; padding: 12px 15px; background: rgba(5, 11, 22, 0.9); border: 1px solid var(--accent-gold); border-radius: 10px; color: #fff; font-size: 1rem; margin-bottom: 20px; outline: none; }
+
+        .sub-header { color: var(--accent-gold); font-size: 1.15rem; margin: 25px 0 10px; text-align: right; border-right: 4px solid var(--accent-gold); padding-right: 12px; font-weight: 600; }
 
         .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-bottom: 20px; }
         .price-item { background: rgba(5, 11, 22, 0.7); padding: 12px 16px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(212, 175, 55, 0.1); }
@@ -97,28 +105,35 @@
         .whatsapp-float:hover { transform: scale(1.1); }
 
         @media(max-width: 768px) {
-            .hero { grid-template-columns: 1fr; padding-top: 120px; text-align: center; }
+            .hero { grid-template-columns: 1fr; padding-top: 140px; text-align: center; }
             .hero-content h1 { font-size: 2.2rem; }
             .hero-btns { justify-content: center; }
             .about-section { grid-template-columns: 1fr; padding: 20px; }
             .form-row { grid-template-columns: 1fr; }
+            .logo-text h2 { font-size: 1.1rem; }
+            .logo-text p { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر العلوي بدون رقم الهاتف، الشعار فقط -->
+    <!-- الشريط الذهبي العلوي -->
+    <div class="top-bar">
+        ✨ خدمة غسيل وكي ملكية بأعلى جودة وسرعة تسليم
+    </div>
+
+    <!-- الهيدر الأنيق -->
     <header>
         <a href="#" class="logo-area">
+            <div class="logo-icon">👑</div>
             <div class="logo-text">
                 <h2>Noah Laundry</h2>
-                <p>نظافة .. راحة .. ثقة</p>
+                <p>الفخامة في كل تفصيلة</p>
             </div>
-            <div class="logo-icon">👑</div>
         </a>
     </header>
 
-    <!-- واجهة الـ Hero مع بطاقة الدراي كلين وهي شغالة -->
+    <!-- واجهة الـ Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>نوح <span>لاندري</span><br>خدمة غسيل وكي احترافية</h1>
@@ -134,8 +149,8 @@
                     <canvas id="dryCleanCanvas" width="180" height="180"></canvas>
                 </div>
                 <div class="vip-title">Noah Laundry VIP</div>
-                <div class="vip-desc">🧺✨ العناية الملكية الأونلاين<br>نستلم من باب بيتك ونوصلك في أبهى حلة</div>
-                <div class="vip-badge">⚙️ ماكينة دراي كلين شحّانة وشغالة الآن</div>
+                <div class="vip-desc">🧺✨ العناية الملكية الأونلاين<br>نستلم من باب بيتك ونوصلك في أبهى حالة</div>
+                <div class="vip-badge">⚙️ The dry-cleaning machine is currently running.</div>
             </div>
         </div>
     </section>
@@ -143,35 +158,42 @@
     <!-- الأيكونات التفاعلية للخدمات -->
     <div id="services" class="section-container">
         <h2 class="section-title">خدماتنا وقائمة الأسعار</h2>
-        <p class="section-subtitle">اضغط على أي خدمة أدناه للاطلاع على قائمة أسعارها كاملة والتفاصيل</p>
+        <p class="section-subtitle">اضغط على أي خدمة أدناه للاطلاع على قائمة أسعارها مقسمة والبحث عن أي قطعة</p>
         
         <div class="services-grid">
             <div class="service-card" onclick="openModal('wash-iron')">
                 <div class="service-icon-wrap">🧼</div>
                 <h3>غسيل وكي شامل</h3>
                 <p>العناية الملكية الكاملة</p>
-                <span class="click-hint">🔍 اضغط للأسعار</span>
+                <span class="click-hint">🔍 اضغط للأسعار والبحث</span>
             </div>
             
             <div class="service-card" onclick="openModal('iron-only')">
                 <div class="service-icon-wrap">👔</div>
-                <h3>كي فقط</h3>
+                <h3>كي الملابس</h3>
                 <p>العناية السريعة والاحترافية</p>
-                <span class="click-hint">🔍 اضغط للأسعار</span>
+                <span class="click-hint">🔍 اضغط للأسعار والبحث</span>
             </div>
 
             <div class="service-card" onclick="openModal('dry-clean')">
                 <div class="service-icon-wrap">✨</div>
                 <h3>غسيل جاف (Dry Clean)</h3>
                 <p>للملابس الرسمية والسهرة</p>
-                <span class="click-hint">🔍 اضغط للأسعار</span>
+                <span class="click-hint">🔍 اضغط للأسعار والبحث</span>
             </div>
 
             <div class="service-card" onclick="openModal('home-furnishings')">
                 <div class="service-icon-wrap">🛏️</div>
                 <h3>المفروشات والسجاد</h3>
                 <p>ملايات - أغطية - ستائر</p>
-                <span class="click-hint">🔍 اضغط للأسعار</span>
+                <span class="click-hint">🔍 اضغط للأسعار والبحث</span>
+            </div>
+
+            <div class="service-card" onclick="openModal('shoes')">
+                <div class="service-icon-wrap">👟</div>
+                <h3>أحذية</h3>
+                <p>تنظيف وغسيل الأحذية</p>
+                <span class="click-hint">🔍 اضغط للأسعار والبحث</span>
             </div>
         </div>
     </div>
@@ -203,9 +225,10 @@
                         <label>اختر الخدمة المطلوبة:</label>
                         <select id="serviceType" class="form-control">
                             <option value="غسيل وكي شامل (العناية الملكية)">🧼 غسيل وكي شامل (العناية الملكية)</option>
-                            <option value="كي فقط (العناية السريعة)">👔 كي فقط (العناية السريعة)</option>
+                            <option value="كي الملابس">👔 كي الملابس</option>
                             <option value="غسيل جاف (Dry Clean)">✨ غسيل جاف (Dry Clean)</option>
                             <option value="غسيل المفروشات والسجاد">🛏️ غسيل المفروشات والسجاد</option>
+                            <option value="أحذية">👟 أحذية</option>
                         </select>
                     </div>
                 </div>
@@ -238,7 +261,7 @@
         </div>
     </div>
 
-    <!-- نافذة الأسعار المنبثقة -->
+    <!-- نافذة الأسعار المنبثقة مع شريط البحث والتقسيم الدقيق -->
     <div id="priceModal" class="modal-overlay" onclick="closeModalOutside(event)">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -254,7 +277,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h3>Noah Laundry</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">نظافة .. راحة .. ثقة. دليلك الكامل لأرقى خدمات الغسيل والكي الفاخرة.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">الفخامة في كل تفصيلة. دليلك الكامل لأرقى خدمات الغسيل والكي الفاخرة.</p>
             </div>
             <div class="footer-col">
                 <h3>روابط سريعة</h3>
@@ -275,7 +298,7 @@
         <p style="color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(212,175,55,0.1); padding-top: 20px;">© 2026 نوح لاندري. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- السكربت -->
+    <!-- السكربت المنظم والمحدث بالبحث والتقسيمات الصحيحة -->
     <script>
         const canvas = document.getElementById('dryCleanCanvas');
         const ctx = canvas.getContext('2d');
@@ -352,86 +375,325 @@
         });
 
         const priceData = {
-            'wash-iron': `
-                <h2 style="color: var(--accent-gold); margin-bottom: 15px;">🧼 غسيل وكي شامل (العناية الملكية)</h2>
-                <div class="sub-header">الملابس العلوية والسفلية للكبار</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">تي شيرت</span><span class="item-price">48.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">قميص</span><span class="item-price">50.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">سويت شيرت</span><span class="item-price">84.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جاكيت</span><span class="item-price">143.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بنطلون</span><span class="item-price">59.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بنطلون جينز</span><span class="item-price">64.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان</span><span class="item-price">188.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جلابية</span><span class="item-price">80.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">عباية</span><span class="item-price">109.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بدلة كاملة</span><span class="item-price">250.00 جنيه</span></div>
-                </div>
-                <div class="sub-header">ملابس الأطفال (غسيل وكي)</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">تي شيرت أطفال</span><span class="item-price">39.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">قميص أطفال</span><span class="item-price">39.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بنطلون أطفال</span><span class="item-price">39.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جاكيت أطفال</span><span class="item-price">68.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان أطفال</span><span class="item-price">71.00 جنيه</span></div>
-                </div>
-                <a href="#order-section" onclick="closeModal()" class="btn-primary" style="margin-top: 20px; justify-content: center;">📝 اطلب الخدمة الآن</a>
-            `,
-            'iron-only': `
-                <h2 style="color: var(--accent-gold); margin-bottom: 15px;">👔 كي فقط (العناية السريعة)</h2>
-                <div class="sub-header">ملابس الكبار (كي فقط)</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">تي شيرت</span><span class="item-price">25.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">قميص</span><span class="item-price">30.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">سويت شيرت</span><span class="item-price">30.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جاكيت</span><span class="item-price">65.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بنطلون</span><span class="item-price">30.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بدلة قطعتين</span><span class="item-price">125.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان</span><span class="item-price">105.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جلابية / عباية</span><span class="item-price">45.00 جنيه</span></div>
-                </div>
-                <div class="sub-header">ملابس الأطفال (كي فقط)</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">تي شيرت أطفال</span><span class="item-price">15.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">قميص أطفال</span><span class="item-price">20.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بنطلون أطفال</span><span class="item-price">20.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان أطفال</span><span class="item-price">45.00 جنيه</span></div>
-                </div>
-                <a href="#order-section" onclick="closeModal()" class="btn-primary" style="margin-top: 20px; justify-content: center;">📝 اطلب الخدمة الآن</a>
-            `,
-            'dry-clean': `
-                <h2 style="color: var(--accent-gold); margin-bottom: 15px;">✨ الغسيل الجاف (Dry Clean)</h2>
-                <div class="sub-header">الملابس الرسمية والسهرة</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">بنطلون (جاف)</span><span class="item-price">91.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">جاكيت / بالطو</span><span class="item-price">150.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بدلة كاملة (قطعتين)</span><span class="item-price">230.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بدلة 3 قطع</span><span class="item-price">300.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان سهرة</span><span class="item-price">257.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فستان خاص / سواريه</span><span class="item-price">855.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">عباية (جاف)</span><span class="item-price">205.00 جنيه</span></div>
-                </div>
-                <a href="#order-section" onclick="closeModal()" class="btn-primary" style="margin-top: 20px; justify-content: center;">📝 اطلب الخدمة الآن</a>
-            `,
-            'home-furnishings': `
-                <h2 style="color: var(--accent-gold); margin-bottom: 15px;">🛏️ غسيل المفروشات والسجاد</h2>
-                <div class="sub-header">المفروشات والمنزلي</div>
-                <div class="price-grid">
-                    <div class="price-item"><span class="item-name">ملايات سرير</span><span class="item-price">80.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">غطاء لحاف سرير</span><span class="item-price">116.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">بطانية / لحاف كبير</span><span class="item-price">150.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">فوطة كبيرة</span><span class="item-price">41.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">روب حمام</span><span class="item-price">62.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">ستائر (بالمتر)</span><span class="item-price">34.00 جنيه</span></div>
-                    <div class="price-item"><span class="item-name">مفرش ترابيزة</span><span class="item-price">82.00 جنيه</span></div>
-                </div>
-                <a href="#order-section" onclick="closeModal()" class="btn-primary" style="margin-top: 20px; justify-content: center;">📝 اطلب الخدمة الآن</a>
-            `
+            'wash-iron': {
+                title: '🧼 غسيل وكي شامل (العناية الملكية)',
+                sections: [
+                    {
+                        category: 'اعلي (ملابس علوية)',
+                        items: [
+                            { name: 'تي شيرت', price: '48.00 جنيه' },
+                            { name: 'تيشيرت طويل', price: '53.00 جنيه' },
+                            { name: 'قميص', price: '50.00 جنيه' },
+                            { name: 'قميص طويل', price: '55.00 جنيه' },
+                            { name: 'سويت شيرت', price: '84.00 جنيه' },
+                            { name: 'بلوفر', price: '84.00 جنيه' },
+                            { name: 'سويتر', price: '87.00 جنيه' },
+                            { name: 'جاكيت', price: '143.00 جنيه' },
+                            { name: 'جاكيت دبل فيس', price: '219.00 جنيه' },
+                            { name: 'بلوزة', price: '63.00 جنيه' },
+                            { name: 'بلوزة طويلة', price: '69.00 جنيه' },
+                            { name: 'تي شيرت كم طويل', price: '48.00 جنيه' },
+                            { name: 'جاكيت خفيف', price: '83.00 جنيه' },
+                            { name: 'بالطو', price: '212.00 جنيه' },
+                            { name: 'ترينج سوت', price: '124.00 جنيه' },
+                            { name: 'بيجامة (2 قطعة)', price: '104.00 جنيه' },
+                            { name: 'كروب تب', price: '48.00 جنيه' },
+                            { name: 'فيست', price: '73.00 جنيه' },
+                            { name: 'ايشارب', price: '42.00 جنيه' },
+                            { name: 'شال', price: '48.00 جنيه' },
+                            { name: 'بالطو طبي', price: '84.00 جنيه' },
+                            { name: 'شال صوفي', price: '82.00 جنيه' },
+                            { name: 'شنطه', price: '125.00 جنيه' },
+                            { name: 'شنطة مدرسة', price: '125.00 جنيه' },
+                            { name: 'جاكيت طويل خفيف', price: '92.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'اسفل (ملابس سفلية)',
+                        items: [
+                            { name: 'بنطلون', price: '59.00 جنيه' },
+                            { name: 'بنطلون جينز', price: '64.00 جنيه' },
+                            { name: 'شورت', price: '43.00 جنيه' },
+                            { name: 'ليجينجز', price: '55.00 جنيه' },
+                            { name: 'جيبة', price: '63.00 جنيه' },
+                            { name: 'اندر وير', price: '23.00 جنيه' },
+                            { name: 'شرابات', price: '11.00 جنيه' },
+                            { name: 'مايوة شرعي', price: '93.00 جنيه' },
+                            { name: 'مايوه حريمي', price: '47.00 جنيه' },
+                            { name: 'مايوه رجالي', price: '47.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'رسمي',
+                        items: [
+                            { name: 'جلابية', price: '80.00 جنيه' },
+                            { name: 'عباية صوف', price: '137.00 جنيه' },
+                            { name: 'فستان', price: '188.00 جنيه' },
+                            { name: 'سالوبيت', price: '116.00 جنيه' },
+                            { name: 'عباية', price: '109.00 جنيه' },
+                            { name: 'جلابية حريمي', price: '63.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'أطفال',
+                        items: [
+                            { name: 'تي شيرت أطفال', price: '39.00 جنيه' },
+                            { name: 'قميص أطفال', price: '39.00 جنيه' },
+                            { name: 'بنطلون أطفال', price: '39.00 جنيه' },
+                            { name: 'شورت أطفال', price: '34.00 جنيه' },
+                            { name: 'سويت شيرت أطفال', price: '47.00 جنيه' },
+                            { name: 'بلوفر أطفال', price: '47.00 جنيه' },
+                            { name: 'سويتر أطفال', price: '63.00 جنيه' },
+                            { name: 'جاكيت أطفال', price: '68.00 جنيه' },
+                            { name: 'بلوزة أطفال', price: '39.00 جنيه' },
+                            { name: 'بالطو أطفال', price: '71.00 جنيه' },
+                            { name: 'جلابية أطفال', price: '48.00 جنيه' },
+                            { name: 'بيجامة أطفال (2 قطعة)', price: '48.00 جنيه' },
+                            { name: 'فستان أطفال', price: '71.00 جنيه' },
+                            { name: 'جيبة أطفال', price: '34.00 جنيه' },
+                            { name: 'سالوبيت أطفال', price: '63.00 جنيه' },
+                            { name: 'فيست أطفال', price: '39.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'منزل (مفروشات منزلية)',
+                        items: [
+                            { name: 'منديل سفرة', price: '26.00 جنيه' },
+                            { name: 'مفرش ترابيزة', price: '82.00 جنيه' },
+                            { name: 'فوطة كبيرة', price: '41.00 جنيه' },
+                            { name: 'فوطة', price: '32.00 جنيه' },
+                            { name: 'روب حمام', price: '62.00 جنيه' },
+                            { name: 'غطاء سرير', price: '116.00 جنيه' },
+                            { name: 'أكياس مخدات', price: '27.00 جنيه' },
+                            { name: 'ملايات سرير فردي', price: '63.00 جنيه' },
+                            { name: 'غطاء لحاف سرير', price: '116.00 جنيه' },
+                            { name: 'وسادة', price: '80.00 جنيه' },
+                            { name: 'غطاء شلته صغير', price: '62.00 جنيه' },
+                            { name: 'غطاء شلته كبير', price: '93.00 جنيه' },
+                            { name: 'سجادة صلاة', price: '0.00 جنيه' },
+                            { name: 'ستائر بالمتر', price: '34.00 جنيه' },
+                            { name: 'ستائر خاصة بالمتر', price: '50.00 جنيه' },
+                            { name: 'ملايات سرير', price: '80.00 جنيه' }
+                        ]
+                    }
+                ]
+            },
+            'iron-only': {
+                title: '👔 كي الملابس',
+                sections: [
+                    {
+                        category: 'اعلي (ملابس علوية)',
+                        items: [
+                            { name: 'تي شيرت', price: '25.00 جنيه' },
+                            { name: 'تيشيرت طويل', price: '28.00 جنيه' },
+                            { name: 'قميص', price: '30.00 جنيه' },
+                            { name: 'قميص طويل', price: '33.00 جنيه' },
+                            { name: 'سويت شيرت', price: '30.00 جنيه' },
+                            { name: 'بلوفر', price: '30.00 جنيه' },
+                            { name: 'سويتر', price: '34.00 جنيه' },
+                            { name: 'جاكيت', price: '65.00 جنيه' },
+                            { name: 'جاكيت دبل فيس', price: '85.00 جنيه' },
+                            { name: 'بلوزة', price: '30.00 جنيه' },
+                            { name: 'بلوزة طويلة', price: '35.00 جنيه' },
+                            { name: 'تي شيرت كم طويل', price: '25.00 جنيه' },
+                            { name: 'جاكيت خفيف', price: '45.00 جنيه' },
+                            { name: 'بالطو', price: '95.00 جنيه' },
+                            { name: 'ترينج سوت', price: '60.00 جنيه' },
+                            { name: 'بيجامة (2 قطعة)', price: '50.00 جنيه' },
+                            { name: 'كروب تب', price: '25.00 جنيه' },
+                            { name: 'فيست', price: '35.00 جنيه' },
+                            { name: 'ايشارب', price: '20.00 جنيه' },
+                            { name: 'شال', price: '25.00 جنيه' },
+                            { name: 'بالطو طبي', price: '45.00 جنيه' },
+                            { name: 'شال صوفي', price: '40.00 جنيه' },
+                            { name: 'شنطه', price: '60.00 جنيه' },
+                            { name: 'شنطة مدرسة', price: '60.00 جنيه' },
+                            { name: 'جاكيت طويل خفيف', price: '50.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'اسفل (ملابس سفلية)',
+                        items: [
+                            { name: 'بنطلون', price: '30.00 جنيه' },
+                            { name: 'بنطلون جينز', price: '35.00 جنيه' },
+                            { name: 'شورت', price: '20.00 جنيه' },
+                            { name: 'ليجينجز', price: '25.00 جنيه' },
+                            { name: 'جيبة', price: '30.00 جنيه' },
+                            { name: 'اندر وير', price: '10.00 جنيه' },
+                            { name: 'شرابات', price: '5.00 جنيه' },
+                            { name: 'مايوة شرعي', price: '45.00 جنيه' },
+                            { name: 'مايوه حريمي', price: '25.00 جنيه' },
+                            { name: 'مايوه رجالي', price: '25.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'رسمي',
+                        items: [
+                            { name: 'جلابية', price: '45.00 جنيه' },
+                            { name: 'عباية صوف', price: '70.00 جنيه' },
+                            { name: 'فستان', price: '105.00 جنيه' },
+                            { name: 'سالوبيت', price: '60.00 جنيه' },
+                            { name: 'عباية', price: '55.00 جنيه' },
+                            { name: 'جلابية حريمي', price: '35.00 جنيه' },
+                            { name: 'بدلة قطعتين', price: '125.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'أطفال',
+                        items: [
+                            { name: 'تي شيرت أطفال', price: '15.00 جنيه' },
+                            { name: 'قميص أطفال', price: '20.00 جنيه' },
+                            { name: 'بنطلون أطفال', price: '20.00 جنيه' },
+                            { name: 'شورت أطفال', price: '15.00 جنيه' },
+                            { name: 'سويت شيرت أطفال', price: '25.00 جنيه' },
+                            { name: 'بلوفر أطفال', price: '25.00 جنيه' },
+                            { name: 'سويتر أطفال', price: '30.00 جنيه' },
+                            { name: 'جاكيت أطفال', price: '35.00 جنيه' },
+                            { name: 'بلوزة أطفال', price: '20.00 جنيه' },
+                            { name: 'تي شيرت كم طويل أطفال', price: '20.00 جنيه' },
+                            { name: 'بالطو أطفال', price: '45.00 جنيه' },
+                            { name: 'جلابية أطفال', price: '25.00 جنيه' },
+                            { name: 'بيجامة أطفال (2 قطعة)', price: '25.00 جنيه' },
+                            { name: 'فستان أطفال', price: '45.00 جنيه' },
+                            { name: 'جيبة أطفال', price: '20.00 جنيه' },
+                            { name: 'سالوبيت أطفال', price: '35.00 جنيه' },
+                            { name: 'فيست أطفال', price: '20.00 جنيه' }
+                        ]
+                    },
+                    {
+                        category: 'منزل (مفروشات منزلية)',
+                        items: [
+                            { name: 'منديل سفرة', price: '15.00 جنيه' },
+                            { name: 'مفرش ترابيزة', price: '45.00 جنيه' },
+                            { name: 'فوطة كبيرة', price: '25.00 جنيه' },
+                            { name: 'فوطة', price: '20.00 جنيه' },
+                            { name: 'روب حمام', price: '35.00 جنيه' },
+                            { name: 'غطاء سرير', price: '60.00 جنيه' },
+                            { name: 'أكياس مخدات', price: '15.00 جنيه' },
+                            { name: 'ملايات سرير فردي', price: '35.00 جنيه' },
+                            { name: 'غطاء لحاف سرير', price: '60.00 جنيه' },
+                            { name: 'وسادة', price: '45.00 جنيه' },
+                            { name: 'غطاء شلته صغير', price: '35.00 جنيه' },
+                            { name: 'غطاء شلته كبير', price: '50.00 جنيه' },
+                            { name: 'سجادة صلاة', price: '0.00 جنيه' },
+                            { name: 'ستائر بالمتر', price: '20.00 جنيه' },
+                            { name: 'ستائر خاصة بالمتر', price: '30.00 جنيه' },
+                            { name: 'ملايات سرير', price: '45.00 جنيه' }
+                        ]
+                    }
+                ]
+            },
+            'dry-clean': {
+                title: '✨ غسيل جاف (Dry Clean)',
+                sections: [
+                    {
+                        category: 'قائمة الأسعار كاملة',
+                        items: [
+                            { name: 'بدلة', price: '230.00 جنيه' },
+                            { name: 'فستان سهره', price: '257.00 جنيه' },
+                            { name: 'عباية', price: '205.00 جنيه' },
+                            { name: 'فستان خاص', price: '855.00 جنيه' },
+                            { name: 'بدلة 3 قطع', price: '300.00 جنيه' },
+                            { name: 'بنطلون', price: '91.00 جنيه' },
+                            { name: 'بلوفر', price: '114.00 جنيه' },
+                            { name: 'جاكيت', price: '171.00 جنيه' },
+                            { name: 'بالطو', price: '262.00 جنيه' },
+                            { name: 'بالطو شمواه', price: '661.00 جنيه' },
+                            { name: 'كرافت', price: '68.00 جنيه' },
+                            { name: 'ايشارب', price: '63.00 جنيه' },
+                            { name: 'كاب', price: '68.00 جنيه' },
+                            { name: 'فيست', price: '114.00 جنيه' },
+                            { name: 'جاكيت شمواه', price: '536.00 جنيه' }
+                        ]
+                    }
+                ]
+            },
+            'home-furnishings': {
+                title: '🛏️ المفروشات والسجاد',
+                sections: [
+                    {
+                        category: 'قائمة الأسعار كاملة',
+                        items: [
+                            { name: 'سجاد عادي (بالمتر)', price: '63.00 جنيه' },
+                            { name: 'بطانية كبيرة', price: '194.00 جنيه' },
+                            { name: 'بطانية صغيرة', price: '148.00 جنيه' },
+                            { name: 'لحاف زوجي', price: '153.00 جنيه' },
+                            { name: 'لحاف فردي', price: '120.00 جنيه' },
+                            { name: 'سجاد خاص بالمتر', price: '80.00 جنيه' }
+                        ]
+                    }
+                ]
+            },
+            'shoes': {
+                title: '👟 أحذية',
+                sections: [
+                    {
+                        category: 'قائمة الأسعار كاملة',
+                        items: [
+                            { name: 'حذاء رياضة', price: '205.00 جنيه' },
+                            { name: 'حذاء شمواه/ جلد', price: '251.00 جنيه' },
+                            { name: 'بوت', price: '319.00 جنيه' },
+                            { name: 'حذاء جلد كاجوال', price: '228.00 جنيه' },
+                            { name: 'حذاء رياضة (أطفال)', price: '114.00 جنيه' },
+                            { name: 'حذاء شمواه/ جلد (أطفال)', price: '137.00 جنيه' },
+                            { name: 'حذاء جلد كاجوال (أطفال)', price: '125.00 جنيه' }
+                        ]
+                    }
+                ]
+            }
         };
 
         function openModal(serviceKey) {
-            document.getElementById('modalBody').innerHTML = priceData[serviceKey];
+            const data = priceData[serviceKey];
+            renderModalContent(data, '');
             document.getElementById('priceModal').style.display = 'flex';
+        }
+
+        function renderModalContent(data, searchTerm) {
+            let htmlContent = `<h2 style="color: var(--accent-gold); margin-bottom: 15px;">${data.title}</h2>`;
+            htmlContent += `<input type="text" id="priceSearchInput" class="search-box" placeholder="🔍 ابحث عن اسم القطعة هنا..." value="${searchTerm}" oninput="filterPrices('${data.title.replace(/'/g, "\\'")}', this.value)">`;
+            
+            let totalFound = 0;
+
+            data.sections.forEach(section => {
+                const filteredItems = section.items.filter(item => item.name.includes(searchTerm));
+                if (filteredItems.length > 0) {
+                    totalFound += filteredItems.length;
+                    htmlContent += `<div class="sub-header">${section.category}</div>`;
+                    htmlContent += `<div class="price-grid">`;
+                    filteredItems.forEach(item => {
+                        htmlContent += `<div class="price-item"><span class="item-name">${item.name}</span><span class="item-price">${item.price}</span></div>`;
+                    });
+                    htmlContent += `</div>`;
+                }
+            });
+
+            if (totalFound === 0) {
+                htmlContent += `<p style="color: var(--text-muted); text-align: center; padding: 20px;">عذراً، لم يتم العثور على نتائج مطابقة للبحث.</p>`;
+            }
+
+            htmlContent += `<a href="#order-section" onclick="closeModal()" class="btn-primary" style="margin-top: 20px; justify-content: center;">📝 اطلب الخدمة الآن</a>`;
+
+            document.getElementById('modalBody').innerHTML = htmlContent;
+            
+            const input = document.getElementById('priceSearchInput');
+            if(input) {
+                input.focus();
+                input.setSelectionRange(input.value.length, input.value.length);
+            }
+        }
+
+        function filterPrices(title, query) {
+            let key = '';
+            for(let k in priceData) {
+                if(priceData[k].title === title) {
+                    key = k;
+                    break;
+                }
+            }
+            if(key) {
+                renderModalContent(priceData[key], query.trim());
+            }
         }
 
         function closeModal() {
